@@ -1,4 +1,57 @@
-/* Стили для кнопок навигации на страницах фактов */
+/* --- Базовые настройки --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Цвета темы (Тёмная тема) --- */
+body {
+    background-color: #121212; /* Очень тёмный серый */
+    color: #e0e0e0; /* Светло-серый текст */
+    line-height: 1.7;
+}
+
+/* --- Ссылки и акценты --- */
+a {
+    color: #00aaff; /* Ярко-синий */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #00ccff; /* Ещё ярче при наведении */
+}
+
+/* --- Шапка сайта (Header) --- */
+header {
+    background-color: #1f1f1f; /* Чуть светлее фона */
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #00aaff;
+}
+
+nav a {
+    margin-left: 2rem;
+    font-weight: 500;
+}
+
+/* --- Главный контент (Main) --- */
+main {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+}
+
+/* --- Кнопки навигации на страницах фактов (NEW) */
 .btn-main, .btn-sec {
     display: inline-block;
     padding: 8px 16px;
@@ -8,7 +61,6 @@
     text-decoration: none;
     transition: all 0.3s ease;
 }
-
 .btn-main {
     background-color: #60a5fa; /* Синий */
     color: white;
@@ -22,15 +74,63 @@
     opacity: 0.9;
 }
 
-/* Полноэкранный слайдер */
-.fullscreen-slider {
-    width: 100vw; /* Ширина окна просмотра */
-    height: 75vh; /* Высота 75% окна просмотра */
-    max-height: 550px;
-    overflow: hidden;
+/* --- Слайдер для фактов (NEW) --- */
+.facts-slider {
+    position: relative;
+    max-width: 960px;
+    margin: 3rem auto 2rem auto; /* Меньше отступ снизу */
+    padding-bottom: 2rem; /* Отступ для кнопок навигации слайдера */
 }
-.fullscreen-slider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Изображение заполняет блок, обрезая лишнее */
+.facts-slider .slide {
+    display: none;
 }
+.facts-slider .slide.active {
+    display: block;
+}
+.facts-slider h2 {
+    color: #e0e0e0;
+}
+.facts-slider p {
+    color: #b0b0b0;
+}
+
+/* Кнопки управления слайдером (Влево / Вправо) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+#prevBtn { left: -40px; }
+#nextBtn { right: -40px; }
+
+/* Страницы статей (Blackhole, Aurora) */
+article {
+    background-color: #1f1f1f;
+    border-radius: 16px;
+    padding: 3rem;
+}
+
+.article h2 {
+     margin-bottom: 1.5rem;
+     color: #e0e0e0;
+ }
+ 
+.article p {
+     color: #b0b0b0;
+ }
+ 
+.article a {
+     color: #00ccff; /* Яркая ссылка на источник */
+     font-weight: bold;
+ }
