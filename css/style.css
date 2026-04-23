@@ -70,25 +70,32 @@ main {
     opacity: 0.9;
 }
 
-/* --- Слайдер для фактов (ПЕРЕРАБОТАН) */
+/* --- НОВЫЙ СЛАЙДЕР (Затухание) --- */
 .facts-slider {
-     position: relative;
-     overflow: hidden; /* Скрываем контент, выходящий за границы */
-     border-radius: 16px; /* Скругление углов блока */
-     margin-top: 3rem;
+     position: relative; /* Относительное позиционирование для кнопок */
+     overflow: hidden; /* Скрываем края слайдов */
+     border-radius: 16px; /* Скругленные углы блока */
+     margin-top: 3rem; /* Отступ сверху */
  }
 
  .slider-track {
-     display: flex; /* Выстраиваем слайды в ряд */
-     transition: transform 0.5s ease-in-out; /* Плавная анимация сдвига */
+     position: relative; /* Для абсолютного позиционирования слайдов внутри */
  }
 
  .slide {
-     min-width: 100%; /* Каждый слайд занимает всю ширину контейнера */
-     flex-shrink: 0; /* Запрещаем сжиматься */
-     padding-right: 2rem; /* Отступ между слайдами */
+     position: absolute; /* Слайды накладываются друг на друга */
+     top: 0;
+     left: 0;
+     width: 100%;
+     opacity: 0; /* По умолчанию все слайды невидимы */
+     transition: opacity 0.8s ease-in-out; /* Плавное изменение прозрачности */
  }
 
+ .slide.active {
+     opacity: 1; /* Только активный слайд виден */
+ }
+
+ /* Стили для контента внутри слайда */
  .slide h2 {
      color: #e0e0e0;
  }
