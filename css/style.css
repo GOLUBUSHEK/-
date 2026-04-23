@@ -6,26 +6,23 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* --- Цвета темы (Тёмная тема) --- */
 body {
-    background-color: #121212; /* Очень тёмный серый */
-    color: #e0e0e0; /* Светло-серый текст */
+    background-color: #121212;
+    color: #e0e0e0;
     line-height: 1.7;
 }
 
-/* --- Ссылки и акценты --- */
 a {
-    color: #00aaff; /* Ярко-синий */
+    color: #00aaff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: #00ccff; /* Ещё ярче при наведении */
+    color: #00ccff;
 }
 
-/* --- Шапка сайта (Header) --- */
 header {
-    background-color: #1f1f1f; /* Чуть светлее фона */
+    background-color: #1f1f1f;
     padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -44,7 +41,6 @@ nav a {
     font-weight: 500;
 }
 
-/* --- Главный контент (Main) --- */
 main {
     max-width: 1100px;
     margin: 3rem auto;
@@ -56,13 +52,13 @@ main {
     display: inline-block;
     padding: 8px 16px;
     margin: 1rem 0.5rem;
-    border-radius: 9999px; /* Полностью круглые углы */
+    border-radius: 9999px;
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 .btn-main {
-    background-color: #60a5fa; /* Синий */
+    background-color: #60a5fa;
     color: white;
 }
 .btn-sec {
@@ -74,63 +70,50 @@ main {
     opacity: 0.9;
 }
 
-/* --- Слайдер для фактов (NEW) --- */
+/* --- Слайдер для фактов (ПЕРЕРАБОТАН) */
 .facts-slider {
-    position: relative;
-    max-width: 960px;
-    margin: 3rem auto 2rem auto; /* Меньше отступ снизу */
-    padding-bottom: 2rem; /* Отступ для кнопок навигации слайдера */
-}
-.facts-slider .slide {
-    display: none;
-}
-.facts-slider .slide.active {
-    display: block;
-}
-.facts-slider h2 {
-    color: #e0e0e0;
-}
-.facts-slider p {
-    color: #b0b0b0;
-}
+     position: relative;
+     overflow: hidden; /* Скрываем контент, выходящий за границы */
+     border-radius: 16px; /* Скругление углов блока */
+     margin-top: 3rem;
+ }
 
-/* Кнопки управления слайдером (Влево / Вправо) */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-.slider-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-#prevBtn { left: -40px; }
-#nextBtn { right: -40px; }
+ .slider-track {
+     display: flex; /* Выстраиваем слайды в ряд */
+     transition: transform 0.5s ease-in-out; /* Плавная анимация сдвига */
+ }
 
-/* Страницы статей (Blackhole, Aurora) */
-article {
-    background-color: #1f1f1f;
-    border-radius: 16px;
-    padding: 3rem;
-}
+ .slide {
+     min-width: 100%; /* Каждый слайд занимает всю ширину контейнера */
+     flex-shrink: 0; /* Запрещаем сжиматься */
+     padding-right: 2rem; /* Отступ между слайдами */
+ }
 
-.article h2 {
-     margin-bottom: 1.5rem;
+ .slide h2 {
      color: #e0e0e0;
  }
- 
-.article p {
+
+ .slide p {
      color: #b0b0b0;
  }
+
+ /* Страницы статей (Blackhole, Aurora) */
+ article {
+     background-color: #1f1f1f;
+     border-radius: 16px;
+     padding: 3rem;
+ }
+
+ .article h2 {
+      margin-bottom: 1.5rem;
+      color: #e0e0e0;
+  }
  
-.article a {
-     color: #00ccff; /* Яркая ссылка на источник */
-     font-weight: bold;
+ .article p {
+      color: #b0b0b0;
+ }
+ 
+ .article a {
+      color: #00ccff;
+      font-weight: bold;
  }
